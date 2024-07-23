@@ -28,5 +28,5 @@ The objective of the quiz game project in C is to create an interactive console-
 
 
 
--
-- 
+
+ 
