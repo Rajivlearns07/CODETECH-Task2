@@ -6,7 +6,7 @@
 **Mentor:** NEELA SANTHOSH KUMAR
 
 
-## Overview of yhe Project
+## Overview of the Project
 
 ## Project: Quiz Game
 
