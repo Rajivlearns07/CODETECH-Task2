@@ -1,0 +1,55 @@
+#include <stdio.h>
+
+typedef struct {
+    char question[256];
+    char options[4][256];
+    char correctOption;
+} QuizQuestion;
+
+void askQuestion(QuizQuestion q, int *score) {
+    printf("%s\n", q.question);
+    for (int i = 0; i < 4; i++) {
+        printf("%c. %s\n", 'A' + i, q.options[i]);
+    }
+    
+    char answer;
+    printf("Enter your answer (A, B, C, D): ");
+    scanf(" %c", &answer);
+    
+    if (answer == q.correctOption) {
+        printf("Correct!\n");
+        (*score)++;
+    } else {
+        printf("Wrong. The correct answer is %c.\n", q.correctOption);
+    }
+}
+
+int main() {
+    QuizQuestion questions[3] = {
+        {"What is the capital of France?", {"Paris", "London", "Berlin", "Madrid"}, 'A'},
+        {"Which planet is known as the Red Planet?", {"Earth", "Mars", "Jupiter", "Saturn"}, 'B'},
+        {"Who wrote 'Hamlet'?", {"Charles Dickens", "Mark Twain", "William Shakespeare", "J.K. Rowling"}, 'C'}
+    };
+    
+    int score = 0;
+    
+    printf("Welcome to the Quiz Game!\n");
+    for (int i = 0; i < 3; i++) {
+        askQuestion(questions[i], &score);
+        printf("\n");
+    }
+    
+    printf("You got %d out of 3 correct.\n", score);
+    
+    if (score == 3) {
+        printf("Excellent!\n");
+    } else if (score == 2) {
+        printf("Good job!\n");
+    } else if (score == 1) {
+        printf("Better luck next time.\n");
+    } else {
+        printf("You need to study more.\n");
+    }
+    
+    return 0;
+}
